@@ -49,6 +49,7 @@
                     </view>
                     <connections>
                         <outlet property="lovelyView" destination="pZX-wl-M22" id="xp0-aL-gqm"/>
+                        <outlet property="scrollView" destination="Jrw-l2-2hm" id="HU8-tq-DDa"/>
                         <outlet property="scrollViewWidth" destination="7YT-rw-6ux" id="LD9-9g-S9o"/>
                     </connections>
                 </viewController>

@@ -12,15 +12,18 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var scrollViewWidth: NSLayoutConstraint!
     @IBOutlet weak var lovelyView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         var imageViewList = [UIImageView]()
         
-        for num in 1...11 {
-            let fileName = String(format: "%04d", num) + ".jpg"
-            imageViewList.append(UIImageView.init(image: UIImage(named: fileName)))
+        for fileName in assetsFileNames() {
+            let imageView = UIImageView.init(image: UIImage(named: fileName))
+            imageView.contentMode = .scaleAspectFit
+            
+            imageViewList.append(imageView)
         }
         
         scrollViewWidth.constant = UIScreen.main.bounds.width * CGFloat(imageViewList.count)
@@ -36,13 +39,21 @@ class ViewController: UIViewController {
             index += 1  
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
     }
-
-
+    
+    func assetsFileNames() -> [String] {
+        var fileNames = [String]()
+        
+        for num in 1...11 {
+            let fileName = String(format: "%04d", num) + ".jpg"
+            fileNames.append(fileName)
+        }
+        return fileNames
+    }
 }
 
